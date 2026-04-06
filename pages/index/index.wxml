@@ -1,0 +1,64 @@
+<view class="container">
+  <!-- 背景图 -->
+  <image class="background" src="/Assets/image/ShanJian_Background.png" mode="aspectFill"></image>
+  
+  <!-- 开始界面 -->
+  <view class="start-screen" wx:if="{{gameState === 'start'}}">
+    <button class="btn start-btn" bindtap="onStartQuestion">提问</button>
+  </view>
+  
+  <!-- 令牌输入界面 -->
+  <view class="input-screen" wx:if="{{gameState === 'input'}}">
+    <view class="lingpai-wrapper {{lingpaiAnim}}">
+      <view class="lingpai-container">
+        <image class="lingpai-bg" src="/Assets/image/ShanJian_Lingpai.png" mode="aspectFit"></image>
+        <canvas 
+          type="2d" 
+          id="writeCanvas" 
+          class="write-canvas"
+          bindtouchstart="onTouchStart"
+          bindtouchmove="onTouchMove"
+          bindtouchend="onTouchEnd"
+        ></canvas>
+      </view>
+    </view>
+    <view class="input-btns">
+      <button class="btn rewrite-btn" bindtap="onRewrite">重写</button>
+      <button class="btn submit-btn" bindtap="onSubmitQuestion">提问</button>
+    </view>
+  </view>
+  
+  <!-- 投币动画界面 -->
+  <view class="throw-screen" wx:if="{{gameState === 'throwing'}}">
+    <view class="throw-container">
+      <view class="lingpai-throw {{throwAnim}}">
+        <image class="lingpai-img" src="/Assets/image/ShanJian_Lingpai.png" mode="aspectFit"></image>
+      </view>
+      <view class="tangbing-wrapper {{tangbingAnim}}">
+        <image class="tangbing" src="/Assets/image/ShanJian_Tangbing.png" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 等待界面 -->
+  <view class="waiting-screen" wx:if="{{gameState === 'waiting'}}">
+    <text class="waiting-text">童子显灵中...</text>
+  </view>
+  
+  <!-- 结果界面 -->
+  <view class="result-screen" wx:if="{{gameState === 'result'}}">
+    <view class="result-wrapper {{resultAnim}}">
+      <view class="result-lingpai">
+        <image class="lingpai-bg" src="/Assets/image/ShanJian_Lingpai.png" mode="aspectFit"></image>
+        <!-- 用户绘制的内容 -->
+        <image wx:if="{{canvasImage}}" class="user-drawing" src="{{canvasImage}}" mode="aspectFit"></image>
+        <!-- 糖饼结果 -->
+        <view class="tangbing-result">
+          <view class="result-dot {{result[0]}}"></view>
+          <view class="result-dot {{result[1]}}"></view>
+        </view>
+      </view>
+    </view>
+    <button class="btn again-btn" bindtap="onPlayAgain">再来一次</button>
+  </view>
+</view>
