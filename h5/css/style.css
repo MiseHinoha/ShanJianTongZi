@@ -115,6 +115,7 @@ html, body {
   height: 100%;
   z-index: 1;
   pointer-events: none;
+  object-fit: contain;
 }
 
 /* 绘制区域 - 覆盖令牌木牌区域 */
@@ -188,6 +189,7 @@ html, body {
 .lingpai-img {
   width: 290px;
   height: 375px;
+  object-fit: contain;
 }
 
 /* 糖饼容器 - 居中 */
@@ -200,6 +202,7 @@ html, body {
 .tangbing {
   width: 90px;
   height: 90px;
+  object-fit: contain;
 }
 
 /* 等待界面 */
