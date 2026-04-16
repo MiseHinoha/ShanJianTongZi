@@ -1,0 +1,370 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1a1a2e;
+  font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  touch-action: none;
+}
+
+@font-face {
+  font-family: 'FZGCustom';
+  src: url('../Assets/font/FZG_CN.ttf') format('truetype');
+  font-display: swap;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#game-container {
+  width: 375px;
+  height: 667px;
+  position: relative;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: none;
+}
+
+.screen.active {
+  display: flex;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* 开始界面 */
+.start-screen {
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 60px;
+}
+
+.start-btn {
+  width: 140px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  color: #FFF8DC;
+  border: 1.5px solid #CD853F;
+  border-radius: 22px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  text-align: center;
+  padding: 0;
+}
+
+/* 输入界面 */
+.input-screen {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lingpai-wrapper {
+  margin-bottom: 20px;
+}
+
+.lingpai-container {
+  position: relative;
+  width: 375px;
+  height: 550px;
+}
+
+.lingpai-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 绘制区域 - 覆盖令牌木牌区域 */
+.write-canvas {
+  position: absolute;
+  top: 145px;
+  left: 55px;
+  width: 250px;
+  height: 407.5px;
+  z-index: 2;
+  background: transparent;
+  touch-action: none;
+}
+
+.input-btns {
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+}
+
+.rewrite-btn, .submit-btn {
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  padding: 0;
+  border-radius: 20px;
+  transition: transform 0.1s;
+}
+
+.rewrite-btn:active, .submit-btn:active, .start-btn:active, .again-btn:active {
+  transform: scale(0.95);
+}
+
+.rewrite-btn {
+  background: linear-gradient(135deg, #666666 0%, #999999 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  color: #FFF8DC;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+/* 投币动画界面 */
+.throw-screen {
+  justify-content: center;
+  align-items: center;
+}
+
+.throw-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 150px;
+}
+
+.lingpai-throw {
+  position: absolute;
+  bottom: 200px;
+  z-index: 2;
+}
+
+.lingpai-img {
+  width: 290px;
+  height: 375px;
+}
+
+/* 糖饼容器 - 居中 */
+.tangbing-wrapper {
+  position: absolute;
+  bottom: 50px;
+  z-index: 3;
+}
+
+.tangbing {
+  width: 90px;
+  height: 90px;
+}
+
+/* 等待界面 */
+.waiting-screen {
+  justify-content: center;
+  align-items: center;
+}
+
+.waiting-text {
+  font-size: 24px;
+  color: #FFF8DC;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  animation: pulse 1.5s ease-in-out infinite;
+  font-family: inherit;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* 结果界面 */
+.result-screen {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-wrapper {
+  margin-bottom: 20px;
+}
+
+.result-lingpai {
+  position: relative;
+  width: 375px;
+  height: 550px;
+}
+
+/* 用户绘制的内容 */
+.user-drawing {
+  position: absolute;
+  top: 145px;
+  left: 55px;
+  width: 250px;
+  height: 407.5px;
+  z-index: 2;
+  object-fit: contain;
+}
+
+/* 糖饼结果显示 - 位于令牌下方 */
+.tangbing-result {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  z-index: 3;
+}
+
+.result-dot {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #5D4037;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  flex-shrink: 0;
+}
+
+.result-dot.red {
+  background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+}
+
+.result-dot.black {
+  background: linear-gradient(135deg, #2F2F2F 0%, #000000 100%);
+}
+
+.again-btn {
+  width: 140px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 18px;
+  text-align: center;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  color: #FFF8DC;
+  border-radius: 22px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+/* 动画类 */
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 令牌投入动画 - 向上移动到童子嘴部消失 */
+.throw-in {
+  animation: throwIn 1.2s ease-in-out forwards;
+}
+
+@keyframes throwIn {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50px) scale(0.9);
+  }
+  100% {
+    transform: translateY(-300px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* 糖饼投入动画 - 从底部移动到童子嘴部 */
+.tangbing-throw {
+  animation: tangbingThrow 1.2s ease-in-out forwards;
+}
+
+@keyframes tangbingThrow {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-100px) scale(0.9);
+  }
+  100% {
+    transform: translateY(-350px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+.drop-down {
+  animation: dropDown 0.8s ease-out;
+}
+
+@keyframes dropDown {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

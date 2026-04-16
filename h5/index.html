@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>善见童子</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="game-container">
+      <img class="background" src="Assets/image/ShanJian_Background.png" alt="background">
+      
+      <!-- 开始界面 -->
+      <div class="screen start-screen" data-screen="start">
+        <button class="btn start-btn" onclick="onStartQuestion()">提问</button>
+      </div>
+      
+      <!-- 令牌输入界面 -->
+      <div class="screen input-screen" data-screen="input">
+        <div class="lingpai-wrapper" id="lingpaiWrapper">
+          <div class="lingpai-container">
+            <img class="lingpai-bg" src="Assets/image/ShanJian_Lingpai.png" alt="lingpai">
+            <canvas id="writeCanvas" class="write-canvas"></canvas>
+          </div>
+        </div>
+        <div class="input-btns">
+          <button class="btn rewrite-btn" onclick="onRewrite()">重写</button>
+          <button class="btn submit-btn" onclick="onSubmitQuestion()">提问</button>
+        </div>
+      </div>
+      
+      <!-- 投币动画界面 -->
+      <div class="screen throw-screen" data-screen="throwing">
+        <div class="throw-container">
+          <div class="lingpai-throw" id="lingpaiThrow">
+            <img class="lingpai-img" src="Assets/image/ShanJian_Lingpai.png" alt="lingpai">
+          </div>
+          <div class="tangbing-wrapper" id="tangbingWrapper">
+            <img class="tangbing" src="Assets/image/ShanJian_Tangbing.png" alt="tangbing">
+          </div>
+        </div>
+      </div>
+      
+      <!-- 等待界面 -->
+      <div class="screen waiting-screen" data-screen="waiting">
+        <span class="waiting-text">童子显灵中...</span>
+      </div>
+      
+      <!-- 结果界面 -->
+      <div class="screen result-screen" data-screen="result">
+        <div class="result-wrapper" id="resultWrapper">
+          <div class="result-lingpai">
+            <img class="lingpai-bg" src="Assets/image/ShanJian_Lingpai.png" alt="lingpai">
+            <img id="userDrawing" class="user-drawing" src="" alt="drawing">
+            <div class="tangbing-result">
+              <div class="result-dot" id="resultDot0"></div>
+              <div class="result-dot" id="resultDot1"></div>
+            </div>
+          </div>
+        </div>
+        <button class="btn again-btn" onclick="onPlayAgain()">再来一次</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
