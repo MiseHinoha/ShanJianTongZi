@@ -150,17 +150,27 @@ function onMouseDown(e) {
   window.addEventListener('mouseup', onMouseUp);
 }
 
+function onShowGuide() {
+  const overlay = document.getElementById('guideOverlay');
+  if (overlay) overlay.classList.add('active');
+}
+
+function onCloseGuide() {
+  const overlay = document.getElementById('guideOverlay');
+  if (overlay) overlay.classList.remove('active');
+}
+
 function onStartQuestion() {
   initBGM();
   setState('input');
-  
+
   const wrapper = document.getElementById('lingpaiWrapper');
   if (wrapper) {
     wrapper.classList.remove('slide-up');
     void wrapper.offsetWidth; // 强制重排以重启动画
     wrapper.classList.add('slide-up');
   }
-  
+
   // 延迟初始化 canvas 确保 DOM 已渲染
   setTimeout(() => {
     initCanvas();

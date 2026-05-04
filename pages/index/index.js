@@ -10,7 +10,9 @@ Page({
     canvasContext: null,
     isDrawing: false,
     lastX: 0,
-    lastY: 0
+    lastY: 0,
+    showGuide: false, // 是否显示玩法说明弹窗
+    guideAnim: '' // 弹窗动画状态：in / out
   },
 
   onLoad() {
@@ -85,9 +87,28 @@ Page({
       })
   },
 
+  // 显示玩法说明弹窗
+  onShowGuide() {
+    this.setData({ showGuide: true, guideAnim: 'in' })
+  },
+
+  // 关闭玩法说明弹窗（点击遮罩时关闭）
+  onCloseGuide() {
+    if (this.data.guideAnim === 'out') return
+    this.setData({ guideAnim: 'out' })
+    setTimeout(() => {
+      this.setData({ showGuide: false, guideAnim: '' })
+    }, 300)
+  },
+
+  // 阻止弹窗内容区域点击事件冒泡到遮罩层
+  onPopupTap() {
+    // 点击弹窗内容时不关闭
+  },
+
   // 开始提问
   onStartQuestion() {
-    this.setData({ 
+    this.setData({
       gameState: 'input',
       lingpaiAnim: 'slide-up'
     })

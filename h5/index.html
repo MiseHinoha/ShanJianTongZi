@@ -13,7 +13,45 @@
       
       <!-- 开始界面 -->
       <div class="screen start-screen" data-screen="start">
+        <img class="info-btn" src="Assets/image/Shanjian_infomation_BTN.png" alt="info" onclick="onShowGuide()">
         <button class="btn start-btn" onclick="onStartQuestion()">提问</button>
+      </div>
+
+      <!-- 玩法说明弹窗 -->
+      <div class="guide-overlay" id="guideOverlay" onclick="onCloseGuide()">
+        <div class="guide-popup" onclick="event.stopPropagation()">
+          <img class="guide-bg" src="Assets/image/Shanjian_game_comment_new.png" alt="guide">
+          <div class="guide-content">
+            <div class="guide-section">
+              <div class="guide-subtitle">如何提问</div>
+              <span class="guide-text">点击「提问」按钮，在令牌上写下你想问的问题，然后点击「提问」提交。</span>
+            </div>
+            <div class="guide-section">
+              <div class="guide-subtitle">三种结果</div>
+              <div class="guide-item">
+                <div class="guide-dots">
+                  <div class="guide-dot red"></div>
+                  <div class="guide-dot red"></div>
+                </div>
+                <span class="guide-text">神明允诺，此事可行</span>
+              </div>
+              <div class="guide-item">
+                <div class="guide-dots">
+                  <div class="guide-dot red"></div>
+                  <div class="guide-dot black"></div>
+                </div>
+                <span class="guide-text">神明笑而不答，此事尚不确定</span>
+              </div>
+              <div class="guide-item">
+                <div class="guide-dots">
+                  <div class="guide-dot black"></div>
+                  <div class="guide-dot black"></div>
+                </div>
+                <span class="guide-text">神明不允，此事不可行</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       
       <!-- 令牌输入界面 -->

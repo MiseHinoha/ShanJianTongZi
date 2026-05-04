@@ -44,6 +44,169 @@ page {
   border: none;
 }
 
+/* 玩法引导按钮 - 右上角 */
+.info-btn {
+  position: fixed;
+  top: 60rpx;
+  right: 40rpx;
+  width: 96rpx;
+  height: 96rpx;
+  z-index: 20;
+}
+
+/* 玩法说明弹窗遮罩 */
+.guide-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.guide-overlay.in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.guide-overlay.out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.guide-popup {
+  position: relative;
+  width: 640rpx;
+  height: 814rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guide-popup.in {
+  animation: popIn 0.35s ease-out;
+}
+
+.guide-popup.out {
+  animation: popOut 0.3s ease-out forwards;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.guide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.guide-content {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  padding: 215rpx 40rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.guide-section {
+  width: 100%;
+  margin-bottom: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guide-subtitle {
+  font-size: 30rpx;
+  color: #7A3F12;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+  letter-spacing: 2rpx;
+  font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.guide-text {
+  font-size: 24rpx;
+  color: #4A2A0E;
+  line-height: 1.6;
+  text-align: center;
+  font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.guide-item .guide-text {
+  white-space: nowrap;
+}
+
+.guide-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 8rpx 0;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+
+.guide-dots {
+  display: flex;
+  gap: 10rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.guide-dot {
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  border: 2rpx solid #5D4037;
+  box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.3);
+}
+
+.guide-dot.red {
+  background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+}
+
+.guide-dot.black {
+  background: linear-gradient(135deg, #2F2F2F 0%, #000000 100%);
+}
+
 /* 输入界面 */
 .input-screen {
   position: fixed;

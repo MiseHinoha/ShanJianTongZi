@@ -88,6 +88,7 @@ html, body {
   box-shadow: 0 3px 10px rgba(0,0,0,0.4);
   text-align: center;
   padding: 0;
+  font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
 /* 输入界面 */
@@ -149,6 +150,141 @@ html, body {
 
 .rewrite-btn:active, .submit-btn:active, .start-btn:active, .again-btn:active {
   transform: scale(0.95);
+}
+
+/* 玩法引导按钮 - 右上角 */
+.info-btn {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* 玩法说明弹窗遮罩 */
+.guide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+.guide-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.guide-popup {
+  position: relative;
+  width: 320px;
+  height: 407px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+
+.guide-overlay.active .guide-popup {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.guide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.guide-content {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  padding: 140px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.guide-section {
+  width: 100%;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.guide-subtitle {
+  font-size: 15px;
+  color: #7A3F12;
+  font-weight: bold;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.guide-text {
+  font-size: 12px;
+  color: #4A2A0E;
+  line-height: 1.6;
+  text-align: center;
+  font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.guide-item .guide-text {
+  white-space: nowrap;
+}
+
+.guide-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 4px 0;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.guide-dots {
+  display: flex;
+  gap: 5px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.guide-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #5D4037;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.guide-dot.red {
+  background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+}
+
+.guide-dot.black {
+  background: linear-gradient(135deg, #2F2F2F 0%, #000000 100%);
 }
 
 .rewrite-btn {
