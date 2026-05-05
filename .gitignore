@@ -18,3 +18,6 @@ Thumbs.db
 # 临时文件
 temp/
 tmp/
+
+# Cloudflare Pages 部署配置（public 仓库不公开）
+h5/_redirects
