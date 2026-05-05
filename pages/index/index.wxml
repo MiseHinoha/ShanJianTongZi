@@ -24,21 +24,21 @@
               <view class="guide-dot red"></view>
               <view class="guide-dot red"></view>
             </view>
-            <text class="guide-text">神明允诺，此事可行</text>
+            <text class="guide-text">童子允诺，此事可行</text>
           </view>
           <view class="guide-item">
             <view class="guide-dots">
               <view class="guide-dot red"></view>
               <view class="guide-dot black"></view>
             </view>
-            <text class="guide-text">神明笑而不答，此事尚不确定</text>
+            <text class="guide-text">童子笑而不答，此事尚不确定</text>
           </view>
           <view class="guide-item">
             <view class="guide-dots">
               <view class="guide-dot black"></view>
               <view class="guide-dot black"></view>
             </view>
-            <text class="guide-text">神明不允，此事不可行</text>
+            <text class="guide-text">童子不允，此事不可行</text>
           </view>
         </view>
       </view>

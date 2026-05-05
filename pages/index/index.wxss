@@ -30,14 +30,13 @@ page {
   height: 88rpx;
   line-height: 88rpx;
   font-size: 36rpx;
-  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
   color: #FFF8DC;
-  border: 3rpx solid #CD853F;
-  border-radius: 44rpx;
-  box-shadow: 0 6rpx 20rpx rgba(0,0,0,0.4);
+  background: transparent url('../../Assets/image/ShanJian_BTN.png') no-repeat center / 100% 100%;
   text-align: center;
   padding: 0;
   font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  border: none;
+  box-shadow: none;
 }
 
 .start-btn::after {
@@ -262,9 +261,13 @@ page {
   height: 80rpx;
   line-height: 80rpx;
   font-size: 32rpx;
+  color: #FFF8DC;
+  background: transparent url('../../Assets/image/ShanJian_BTN.png') no-repeat center / 100% 100%;
   text-align: center;
   padding: 0;
   font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  border: none;
+  box-shadow: none;
 }
 
 .rewrite-btn::after, .submit-btn::after {
@@ -413,9 +416,13 @@ page {
   height: 88rpx;
   line-height: 88rpx;
   font-size: 36rpx;
+  color: #FFF8DC;
+  background: transparent url('../../Assets/image/ShanJian_BTN.png') no-repeat center / 100% 100%;
   text-align: center;
   padding: 0;
   font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  border: none;
+  box-shadow: none;
 }
 
 .again-btn::after {

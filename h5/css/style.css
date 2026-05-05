@@ -81,14 +81,13 @@ html, body {
   height: 44px;
   line-height: 44px;
   font-size: 18px;
-  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
   color: #FFF8DC;
-  border: 1.5px solid #CD853F;
-  border-radius: 22px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  background: transparent url('../Assets/image/ShanJian_BTN.png') no-repeat center / 100% 100%;
   text-align: center;
   padding: 0;
   font-family: 'FZGCustom', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  border: none;
+  box-shadow: none;
 }
 
 /* 输入界面 */
@@ -144,7 +143,6 @@ html, body {
   font-size: 16px;
   text-align: center;
   padding: 0;
-  border-radius: 20px;
   transition: transform 0.1s;
 }
 
@@ -287,16 +285,11 @@ html, body {
   background: linear-gradient(135deg, #2F2F2F 0%, #000000 100%);
 }
 
-.rewrite-btn {
-  background: linear-gradient(135deg, #666666 0%, #999999 100%);
-  color: #ffffff;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-}
-
-.submit-btn {
-  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+.rewrite-btn, .submit-btn {
   color: #FFF8DC;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  background: transparent url('../Assets/image/ShanJian_BTN.png') no-repeat center / 100% 100%;
+  border: none;
+  box-shadow: none;
 }
 
 /* 投币动画界面 */
@@ -423,14 +416,14 @@ html, body {
   height: 44px;
   line-height: 44px;
   font-size: 18px;
+  color: #FFF8DC;
+  background: transparent url('../Assets/image/ShanJian_BTN.png') no-repeat center / 100% 100%;
   text-align: center;
   padding: 0;
   font-family: inherit;
   cursor: pointer;
-  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
-  color: #FFF8DC;
-  border-radius: 22px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  border: none;
+  box-shadow: none;
 }
 
 /* 动画类 */
