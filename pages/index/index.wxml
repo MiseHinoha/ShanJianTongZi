@@ -4,6 +4,7 @@
   
   <!-- 开始界面 -->
   <view class="start-screen" wx:if="{{gameState === 'start'}}">
+    <image class="mute-btn" src="{{isMuted ? '/Assets/image/ShanJian_Mute_BTN.png' : '/Assets/image/ShanJian_SFX_BTN.png'}}" mode="aspectFit" bindtap="onToggleMute"></image>
     <image class="info-btn" src="/Assets/image/Shanjian_infomation_BTN.png" mode="aspectFit" bindtap="onShowGuide"></image>
     <button class="btn start-btn" bindtap="onStartQuestion">提问</button>
   </view>

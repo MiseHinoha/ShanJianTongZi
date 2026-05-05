@@ -162,6 +162,18 @@ html, body {
   z-index: 20;
 }
 
+/* 静音/声音切换按钮 - 右上角（在介绍按钮左侧） */
+.mute-btn {
+  position: absolute;
+  top: 30px;
+  right: 80px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 20;
+}
+
 /* 玩法说明弹窗遮罩 */
 .guide-overlay {
   position: absolute;

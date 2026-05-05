@@ -5,11 +5,13 @@ let isDrawing = false;
 let bgmAudio, fallAudio;
 let canvasImage = '';
 let result = ['', ''];
+let isMuted = true;
 
 function init() {
   resize();
   window.addEventListener('resize', resize);
   render();
+  initBGM();
 }
 
 function resize() {
@@ -39,10 +41,32 @@ function initBGM() {
     bgmAudio = new Audio('Assets/sound/Morning_in_the_Valley.mp3');
     bgmAudio.loop = true;
     bgmAudio.volume = 0.5;
+    bgmAudio.muted = isMuted;
   }
   bgmAudio.play().catch(() => {
-    // 移动端可能阻止自动播放，忽略错误
+    // 自动播放被浏览器阻止，等待用户第一次交互后恢复
+    const resumeAudio = () => {
+      if (bgmAudio) bgmAudio.play().catch(() => {});
+      document.removeEventListener('click', resumeAudio);
+      document.removeEventListener('touchstart', resumeAudio);
+    };
+    document.addEventListener('click', resumeAudio);
+    document.addEventListener('touchstart', resumeAudio);
   });
+}
+
+function onToggleMute() {
+  isMuted = !isMuted;
+  const btn = document.getElementById('muteBtn');
+  if (btn) {
+    btn.src = isMuted ? 'Assets/image/ShanJian_Mute_BTN.png' : 'Assets/image/ShanJian_SFX_BTN.png';
+  }
+  if (bgmAudio) {
+    bgmAudio.muted = isMuted;
+    if (!isMuted) {
+      bgmAudio.play().catch(() => {});
+    }
+  }
 }
 
 function playFallSound() {
@@ -161,7 +185,6 @@ function onCloseGuide() {
 }
 
 function onStartQuestion() {
-  initBGM();
   setState('input');
 
   const wrapper = document.getElementById('lingpaiWrapper');

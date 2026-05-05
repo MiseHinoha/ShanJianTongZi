@@ -12,11 +12,11 @@ Page({
     lastX: 0,
     lastY: 0,
     showGuide: false, // 是否显示玩法说明弹窗
-    guideAnim: '' // 弹窗动画状态：in / out
+    guideAnim: '', // 弹窗动画状态：in / out
+    isMuted: true // 是否静音
   },
 
   onLoad() {
-    this.initBGM()
     this.loadCustomFont()
   },
 
@@ -35,6 +35,7 @@ Page({
   },
 
   onReady() {
+    this.initBGM()
     this.initCanvas()
   },
 
@@ -43,9 +44,23 @@ Page({
     const bgm = wx.createInnerAudioContext()
     bgm.src = '/Assets/sound/Morning_in_the_Valley.mp3'
     bgm.loop = true
-    bgm.volume = 0.5
-    bgm.play()
+    bgm.volume = this.data.isMuted ? 0 : 0.5
+    if (!this.data.isMuted) {
+      bgm.play()
+    }
     this.bgm = bgm
+  },
+
+  // 切换静音/声音
+  onToggleMute() {
+    const isMuted = !this.data.isMuted
+    this.setData({ isMuted })
+    if (this.bgm) {
+      this.bgm.volume = isMuted ? 0 : 0.5
+      if (!isMuted) {
+        this.bgm.play()
+      }
+    }
   },
 
   // 播放掉落音效

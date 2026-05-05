@@ -53,6 +53,16 @@ page {
   z-index: 20;
 }
 
+/* 静音/声音切换按钮 - 右上角（在介绍按钮左侧） */
+.mute-btn {
+  position: fixed;
+  top: 60rpx;
+  right: 150rpx;
+  width: 96rpx;
+  height: 96rpx;
+  z-index: 20;
+}
+
 /* 玩法说明弹窗遮罩 */
 .guide-overlay {
   position: fixed;
